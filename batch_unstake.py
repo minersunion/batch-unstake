@@ -7,7 +7,7 @@ from typing import List, Optional, Tuple
 
 def get_hotkey_wallets_for_wallet(wallet) -> List["bittensor.wallet"]:
     hotkey_wallets = []
-    hotkeys_path = wallet.path + "/" + wallet.name + "/hotkeys"
+    hotkeys_path = os.path.expanduser("~/.bittensor/wallets") + "/" + wallet.name + "/hotkeys"
     try:
         hotkey_files = next(os.walk(os.path.expanduser(hotkeys_path)))[2]
     except StopIteration:
